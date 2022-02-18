@@ -44,8 +44,11 @@ public abstract class Sorter {
             }
             sortCouple(f, new File(iFiles[0]), new File(iFiles[1]));
             int count = 2;
-            while (count <= iFiles.length) {
-                sortCouple(f, f, new File(iFiles[count]));
+            while (count < iFiles.length) {
+                sortCouple(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\auxillary.txt"), f, new File(iFiles[count]));
+                clearFile(f);
+                copyFileUsingStream(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\auxillary.txt"),f);
+                clearFile(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\auxillary.txt"));
                 count++;
             }
         }
