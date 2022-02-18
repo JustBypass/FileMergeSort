@@ -15,10 +15,10 @@ public class DigitSorter extends Sorter {
     @Override
     public void sortCouple(File wr,File f1, File f2) throws IOException {
         FileReader fr1 = new FileReader(f1);
-        //создаем BufferedReader с существующего FileReader для построчного считывания
+
         BufferedReader reader1 = new BufferedReader(fr1);
         FileReader fr2 = new FileReader(f2);
-        //создаем BufferedReader с существующего FileReader для построчного считывания
+
         BufferedReader reader2 = new BufferedReader(fr2);
 
         PrintWriter pw = new PrintWriter(wr);
@@ -58,5 +58,4 @@ public class DigitSorter extends Sorter {
         }
         pw.close();
     }
-
 }

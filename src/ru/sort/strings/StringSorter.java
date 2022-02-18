@@ -17,13 +17,11 @@ public class StringSorter extends Sorter {
     @Override
     public void sortCouple(File wr,File f1, File f2) throws IOException {
         FileReader fr1 = new FileReader(f1);
-        //создаем BufferedReader с существующего FileReader для построчного считывания
+
         BufferedReader reader1 = new BufferedReader(fr1);
         FileReader fr2 = new FileReader(f2);
-        //создаем BufferedReader с существующего FileReader для построчного считывания
+
         BufferedReader reader2 = new BufferedReader(fr2);
-       /* int num1 = Integer.parseInt(reader1.readLine());
-        int num2 = Integer.parseInt(reader2.readLine());*/
 
         PrintWriter pw = new PrintWriter(wr);
 
@@ -32,18 +30,18 @@ public class StringSorter extends Sorter {
         while(str1!=null&&str2!=null)
         {
             if((str1).compareTo(str2)>0){
-                pw.println(Integer.parseInt(str2));
+                pw.println((str2));
                 str2 = reader2.readLine();
             }
             else if((str1).compareTo(str2)<0){
-                pw.println(Integer.parseInt(str1));
+                pw.println((str1));
 
                 str1 = reader1.readLine();
             }
             else if(str1.compareTo(str2) == 0)
             {
-                pw.println(Integer.parseInt(str1));
-                pw.println(Integer.parseInt(str1));
+                pw.println((str1));
+                pw.println((str1));
 
                 str1 = reader1.readLine();
                 str2 = reader2.readLine();
@@ -52,16 +50,14 @@ public class StringSorter extends Sorter {
         if(str1!= null){
             str1 = reader1.readLine();
             while(str1!=null){
-                pw.println(Integer.parseInt(str1));
-
+                pw.println((str1));
                 str1 = reader1.readLine();
             }
         }
         else if(str2!= null){
             str2 = reader2.readLine();
             while(str2!=null){
-                pw.println(Integer.parseInt(str2));
-
+                pw.println((str2));
                 str2 = reader2.readLine();
             }
         }
