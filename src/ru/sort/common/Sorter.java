@@ -29,9 +29,10 @@ public abstract class Sorter {
         writer.print("");
         writer.close();
     }
-    public Sorter(String oFile,String[] iFiles) {
+    public Sorter(boolean sType,String oFile,String[] iFiles) {
         this.oFile = oFile;
         this.iFiles = iFiles;
+        this.sortType = sType;
     }
 
     public abstract void sortCouple(File write,File f1,File f2) throws IOException;
@@ -45,10 +46,10 @@ public abstract class Sorter {
             sortCouple(f, new File(iFiles[0]), new File(iFiles[1]));
             int count = 2;
             while (count < iFiles.length) {
-                sortCouple(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\auxillary.txt"), f, new File(iFiles[count]));
+                sortCouple(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\docs\\auxillary.txt"), f, new File(iFiles[count]));
                 clearFile(f);
-                copyFileUsingStream(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\auxillary.txt"),f);
-                clearFile(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\auxillary.txt"));
+                copyFileUsingStream(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\docs\\auxillary.txt"),f);
+                clearFile(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\docs\\auxillary.txt"));
                 count++;
             }
         }

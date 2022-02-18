@@ -10,8 +10,8 @@ import java.nio.file.StandardOpenOption;
 
 public class StringSorter extends Sorter {
 
-    public StringSorter(String oFile, String[] iFiles) {
-        super(oFile, iFiles);
+    public StringSorter(boolean sType, String oFile, String[] iFiles) {
+        super(sType, oFile, iFiles);
     }
 
     @Override
@@ -29,16 +29,23 @@ public class StringSorter extends Sorter {
         String str2 = reader2.readLine();
         while(str1!=null&&str2!=null)
         {
-            if((str1).compareTo(str2)>0){
+            if((str1).compareTo(str2)>0&&str1.length()<=str2.length()){
+                pw.println((str1));
+                str1 = reader1.readLine();
+            }
+           else if((str1).compareTo(str2)>0&&str1.length()>=str2.length()){
                 pw.println((str2));
                 str2 = reader2.readLine();
             }
-            else if((str1).compareTo(str2)<0){
+            else if((str1).compareTo(str2)<0&&str1.length()>=str2.length()){
+                pw.println((str2));
+                str2 = reader2.readLine();
+            }
+            else if((str1).compareTo(str2)<0&&str1.length()<=str2.length()){
                 pw.println((str1));
-
                 str1 = reader1.readLine();
             }
-            else if(str1.compareTo(str2) == 0)
+            else if(str1.compareTo(str2) == 0&&str1.length()==str2.length())
             {
                 pw.println((str1));
                 pw.println((str1));
@@ -48,14 +55,12 @@ public class StringSorter extends Sorter {
             }
         }
         if(str1!= null){
-            str1 = reader1.readLine();
             while(str1!=null){
                 pw.println((str1));
                 str1 = reader1.readLine();
             }
         }
         else if(str2!= null){
-            str2 = reader2.readLine();
             while(str2!=null){
                 pw.println((str2));
                 str2 = reader2.readLine();

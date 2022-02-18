@@ -8,8 +8,9 @@ import java.nio.file.*;
 
 public class DigitSorter extends Sorter {
 
-    public DigitSorter(String oFile, String[] iFiles) {
-        super(oFile, iFiles);
+
+    public DigitSorter(boolean sType, String oFile, String[] iFiles) {
+        super(sType, oFile, iFiles);
     }
 
     @Override

@@ -20,12 +20,22 @@ public class paramReader {
     private void initSorter(String[] args){
 
         if(args[0] == "-d"||args[0] == "-a"){
+            boolean sortType;
             if(args[0] == "-d"){
-                boolean sortType = false;
-
+                sortType = false;
             }
             else{
-                boolean sortType = true;
+                sortType = true;
+            }
+            String[] inputFiles = new String[args.length-3];
+            String outputFile = args[2];
+            for(int i = 0;i<args.length-3;i++){
+                inputFiles[i] = args[i+3];
+            }
+            if (args[1] == "-s") {
+                sorter = new StringSorter(sortType,outputFile, inputFiles);
+            } else {
+                sorter = new DigitSorter(sortType,outputFile, inputFiles);
             }
         }
         else {
@@ -35,9 +45,9 @@ public class paramReader {
                 inputFiles[i] = args[i+2];
             }
             if (args[0] == "-s") {
-                sorter = new StringSorter(outputFile, inputFiles);
+                sorter = new StringSorter(true,outputFile, inputFiles);
             } else {
-                sorter = new DigitSorter(outputFile, inputFiles);
+                sorter = new DigitSorter(true,outputFile, inputFiles);
             }
         }
     }
