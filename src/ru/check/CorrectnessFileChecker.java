@@ -1,6 +1,9 @@
 package ru.check;
 
-public class CorrectnessFileChecker {
+import java.io.File;
 
+public class CorrectnessFileChecker {
+    private File experimental;
+    private boolean type;// String or Integer
 
 }
