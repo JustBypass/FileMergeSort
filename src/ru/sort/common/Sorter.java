@@ -35,23 +35,21 @@ public abstract class Sorter {
         this.sortType = sType;
     }
 
-    public abstract void sortCouple(File write,File f1,File f2) throws IOException;
+    public abstract void sortCouple(File write,File f1,File f2,boolean sType) throws IOException;
     public void sort() throws IOException {
-        if (sortType == true) {
             File f = new File(oFile);
             if (iFiles.length == 1) {
                 copyFileUsingStream(new File(iFiles[0]),f);
                 return;
             }
-            sortCouple(f, new File(iFiles[0]), new File(iFiles[1]));
+            sortCouple(f, new File(iFiles[0]), new File(iFiles[1]),sortType);
             int count = 2;
             while (count < iFiles.length) {
-                sortCouple(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\docs\\auxillary.txt"), f, new File(iFiles[count]));
+                sortCouple(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\docs\\auxillary.txt"), f, new File(iFiles[count]),sortType);
                 clearFile(f);
-                copyFileUsingStream(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\docs\\auxillary.txt"),f);
+                copyFileUsingStream(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\docs\\auxillary.txt"), f);
                 clearFile(new File("C:\\Users\\Admin\\IdeaProjects\\newone\\docs\\auxillary.txt"));
                 count++;
             }
-        }
     }
 }

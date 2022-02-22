@@ -15,7 +15,7 @@ public class StringSorter extends Sorter {
     }
 
     @Override
-    public void sortCouple(File wr,File f1, File f2) throws IOException {
+    public void sortCouple(File wr,File f1, File f2,boolean sType) throws IOException {
         FileReader fr1 = new FileReader(f1);
 
         BufferedReader reader1 = new BufferedReader(fr1);
@@ -27,41 +27,59 @@ public class StringSorter extends Sorter {
 
         String str1 = reader1.readLine();
         String str2 = reader2.readLine();
-        while(str1!=null&&str2!=null)
-        {
-            if((str1).compareTo(str2)>0&&str1.length()<=str2.length()){
-                pw.println((str1));
-                str1 = reader1.readLine();
-            }
-           else if((str1).compareTo(str2)>0&&str1.length()>=str2.length()){
-                pw.println((str2));
-                str2 = reader2.readLine();
-            }
-            else if((str1).compareTo(str2)<0&&str1.length()>=str2.length()){
-                pw.println((str2));
-                str2 = reader2.readLine();
-            }
-            else if((str1).compareTo(str2)<0&&str1.length()<=str2.length()){
-                pw.println((str1));
-                str1 = reader1.readLine();
-            }
-            else if(str1.compareTo(str2) == 0&&str1.length()==str2.length())
-            {
-                pw.println((str1));
-                pw.println((str1));
+        if(sType == true) {
+            while (str1 != null && str2 != null) {
+                if ((str1).compareTo(str2) > 0 && str1.length() <= str2.length()) {
+                    pw.println((str1));
+                    str1 = reader1.readLine();
+                } else if ((str1).compareTo(str2) > 0 && str1.length() >= str2.length()) {
+                    pw.println((str2));
+                    str2 = reader2.readLine();
+                } else if ((str1).compareTo(str2) < 0 && str1.length() >= str2.length()) {
+                    pw.println((str2));
+                    str2 = reader2.readLine();
+                } else if ((str1).compareTo(str2) < 0 && str1.length() <= str2.length()) {
+                    pw.println((str1));
+                    str1 = reader1.readLine();
+                } else if (str1.compareTo(str2) == 0 && str1.length() == str2.length()) {
+                    pw.println((str1));
+                    pw.println((str1));
 
-                str1 = reader1.readLine();
-                str2 = reader2.readLine();
+                    str1 = reader1.readLine();
+                    str2 = reader2.readLine();
+                }
             }
         }
-        if(str1!= null){
-            while(str1!=null){
+        else{
+            while (str1 != null && str2 != null) {
+                if ((str1).compareTo(str2) > 0 && str1.length() <= str2.length()) {
+                    pw.println((str2));
+                    str2 = reader2.readLine();
+                } else if ((str1).compareTo(str2) > 0 && str1.length() >= str2.length()) {
+                    pw.println((str1));
+                    str1 = reader1.readLine();
+                } else if ((str1).compareTo(str2) < 0 && str1.length() >= str2.length()) {
+                    pw.println((str1));
+                    str1 = reader1.readLine();
+                } else if ((str1).compareTo(str2) < 0 && str1.length() <= str2.length()) {
+                    pw.println((str2));
+                    str2 = reader2.readLine();
+                } else if (str1.compareTo(str2) == 0 && str1.length() == str2.length()) {
+                    pw.println((str1));
+                    pw.println((str1));
+
+                    str1 = reader1.readLine();
+                    str2 = reader2.readLine();
+                }
+            }
+        }
+        if (str1 != null) {
+            while (str1 != null) {
                 pw.println((str1));
                 str1 = reader1.readLine();
             }
-        }
-        else if(str2!= null){
-            while(str2!=null){
+        } else if (str2 != null) {
+            while (str2 != null) {
                 pw.println((str2));
                 str2 = reader2.readLine();
             }
